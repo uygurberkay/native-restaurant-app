@@ -1,13 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { Navigation } from './navigation';
 import FavoritesContextProvider from './store/context/favorites-context';
+import { Provider } from 'react-redux';
+import { store } from './store/redux/store';
 
 export default function App() {
   return (
     <>
-      <FavoritesContextProvider>
+      {/* With Context Provider */}
+        {/* <FavoritesContextProvider>
+          <Navigation />
+        </FavoritesContextProvider> */}
+      {/* With Redux Store */}
+      <Provider store={store}>
+        <StatusBar style="auto" />
         <Navigation />
-      </FavoritesContextProvider>
+      </Provider>
     </>
   );
 }
